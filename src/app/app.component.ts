@@ -7,7 +7,4 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  values: { id: string, name: number }[] = [];
-
-  localhost: string = 'jdbc:postgresql://localhost:5432/bootcamp_2';
 }
