@@ -1,28 +1,5 @@
 <div class="container">
-  <div class="row">
-    <div class="form-group">
-      <label for="serverName">Server Name: </label>
-      <input type="text" name="nama" id="serverName" class="form-control" [(ngModel)]="serverName">
-    </div>
-    <div class="form-group">
-      <label for="serverContent">Server Content: </label>
-      <textarea name="content" id="serverContent" cols="30" rows="10" class="form-control"
-                [(ngModel)]="serverContent"></textarea>
-    </div>
-    <div class="form-group">
-      <button class="btn btn-primary" (click)="addNewServer()">Add new Server</button>
-      <button class="btn btn-primary" (click)="addNewServerBlueprint()">Add new Server Blueprint</button>
-    </div>
-  </div>
+  <app-cockpit></app-cockpit>
   <hr>
-  <div class="row">
-    <div class="panel panel-default" *ngFor="let server of serverElements">
-      <div class="panel-heading">
-        <h3>{{server.name}}</h3>
-      </div>
-      <div class="panel-body" [ngStyle]="{'color': server.type === 'server' ? 'red' : 'blue'}">
-        {{server.content}}
-      </div>
-    </div>
-  </div>
+  <app-server-element *ngFor="let server of serverElements" [element]="server"></app-server-element>
 </div>
