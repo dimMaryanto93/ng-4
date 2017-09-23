@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
-    <app-an-account></app-an-account>
+    <app-an-account (createdAnAccount)="doCreatedAnAccount($event)"></app-an-account>
   </div>
   <hr>
   <div class="row">
-    <app-accounts></app-accounts>
+    <app-accounts *ngFor="let anAccount of accounts" [anAccount]="anAccount"></app-accounts>
   </div>
 </div>

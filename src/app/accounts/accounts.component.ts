@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Account} from "../account";
 
 @Component({
   selector: 'app-accounts',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountsComponent implements OnInit {
 
-  constructor() { }
+  @Input() anAccount: Account;
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  onChangedServerStatus(value: boolean) {
+    this.anAccount.status = value;
+  }
 }

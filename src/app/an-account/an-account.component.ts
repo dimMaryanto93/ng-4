@@ -1,4 +1,5 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Account} from "../account";
 
 @Component({
   selector: 'app-an-account',
@@ -7,7 +8,8 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 })
 export class AnAccountComponent implements OnInit {
 
-  @Output() accountAdded = new EventEmitter<{ name: string, status: boolean }>();
+  @Output('createdAnAccount') accountCreated = new EventEmitter<Account>();
+  account: Account = new Account();
 
   constructor() {
   }
@@ -15,4 +17,8 @@ export class AnAccountComponent implements OnInit {
   ngOnInit() {
   }
 
+  createNewAccount() {
+    this.accountCreated.emit(this.account);
+    this.account = new Account();
+  }
 }
