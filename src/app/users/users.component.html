@@ -1,0 +1,21 @@
+<div class="col-md-4">
+  <ul class="nav flex-column">
+    <li class="nav-item" *ngFor="let aUser of users"><a href="#" class="nav-link">{{aUser.email}}</a></li>
+  </ul>
+</div>
+<div class="col-md-8">
+  <h3>User Details</h3>
+  <div class="form-group">
+    <label>Username: {{user.name}}</label>
+    <!--<input type="text" name="serverName" id="serverName" class="form-control">-->
+  </div>
+  <div class="form-group">
+    <label>email: {{user.email}}</label>
+    <!--<select name="serverStatus" id="serverStatus" class="form-control">-->
+    <!--<option value="true">Online</option>-->
+    <!--<option value="false">Offline</option>-->
+    <!--<option value="null">Unavailable</option>-->
+    <!--</select>-->
+  </div>
+  <div class="form-group"><label>{{user.active == true ? 'User is active': 'User is not active'}}</label></div>
+</div>
