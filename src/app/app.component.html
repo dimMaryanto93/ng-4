@@ -1,9 +1,16 @@
 <div class="container">
   <div class="row">
     <ul class="nav nav-tabs">
-      <li class="nav-item"><a routerLink="/" class="nav-link">Home</a></li>
-      <li class="nav-item"><a routerLink="/servers" class="nav-link">Servers</a></li>
-      <li class="nav-item"><a routerLink="/users" class="nav-link">Users</a></li>
+      <li class="nav-item" routerLinkActive="active"
+          [routerLinkActiveOptions]="{exact: true}">
+        <a routerLink="/" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="servers" class="nav-link">Servers</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a routerLink="users" class="nav-link">Users</a>
+      </li>
     </ul>
   </div>
 
