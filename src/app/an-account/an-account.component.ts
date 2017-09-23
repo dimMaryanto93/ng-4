@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-an-account',
@@ -7,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnAccountComponent implements OnInit {
 
-  constructor() { }
+  @Output() accountAdded = new EventEmitter<{ name: string, status: boolean }>();
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
