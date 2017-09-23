@@ -15,4 +15,8 @@ export class LoggingService {
     console.log("A server updated! the name is " + anAccount.name + " and the status is " + anAccount.status);
   }
 
+  logListChanged(size: number) {
+    console.log("List values account changed the size : " + size);
+  }
+
 }

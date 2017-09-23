@@ -22,5 +22,6 @@ export class AppComponent implements OnInit {
 
   doCreatedAnAccount(anAccount: Account) {
     this.accountService.newAccount(anAccount);
+    console.log("list of element accounts size is " + this.accounts.length)
   }
 }

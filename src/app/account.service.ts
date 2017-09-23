@@ -1,10 +1,11 @@
 import {Injectable} from '@angular/core';
 import {Account} from "./account";
+import {LoggingService} from "./logging.service";
 
 @Injectable()
 export class AccountService {
 
-  constructor() {
+  constructor(private loggingService: LoggingService) {
   }
 
   accounts: Account[] = [
@@ -14,6 +15,7 @@ export class AccountService {
 
   newAccount(anAccount: Account) {
     this.accounts.push(anAccount);
+    this.loggingService.logListChanged(this.accounts.length);
   }
 
 }
