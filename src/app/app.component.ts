@@ -13,11 +13,11 @@ export class AppComponent {
     {name: 'Development server', content: 'some text', type: 'server'}
   ];
 
-  addNewServer() {
-    // this.serverElements.push({name: this.serverName, content: this.serverContent, type: 'server'});
+  addNewServer(dataServer: { nama: string, content: string }) {
+    this.serverElements.push({name: dataServer.nama, content: dataServer.content, type: 'server'});
   }
 
-  addNewServerBlueprint() {
-    // this.serverElements.push({name: this.serverName, content: this.serverContent, type: 'blueprint'});
+  addNewServerBlueprint(dataBlueprint: { nama: string, content: string }) {
+    this.serverElements.push({name: dataBlueprint.nama, content: dataBlueprint.content, type: 'blueprint'});
   }
 }
