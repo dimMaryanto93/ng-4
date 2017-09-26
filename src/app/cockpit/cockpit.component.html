@@ -1,12 +1,15 @@
 <div class="row">
   <div class="form-group">
     <label for="serverName">Server Name: </label>
-    <input type="text" name="nama" id="serverName" class="form-control" [(ngModel)]="serverName">
+    <!--<input type="text" name="nama" id="serverName" class="form-control" [(ngModel)]="serverName">-->
+    <input type="text" name="nama" id="serverName" class="form-control" #serverName="ngModel">
   </div>
   <div class="form-group">
     <label for="serverContent">Server Content: </label>
+    <!--<textarea name="content" id="serverContent" cols="30" rows="10" class="form-control"-->
+              <!--[(ngModel)]="serverContent"></textarea>-->
     <textarea name="content" id="serverContent" cols="30" rows="10" class="form-control"
-              [(ngModel)]="serverContent"></textarea>
+              #serverContent></textarea>
   </div>
   <div class="form-group">
     <button class="btn btn-primary" (click)="addNewServer()">Add new Server</button>
