@@ -3,8 +3,6 @@
     <div class="panel-heading">
       <h3>{{element.name}}</h3>
     </div>
-    <div class="panel-body" [ngStyle]="{'color': element.type === 'server' ? 'red' : 'blue'}">
-      {{element.content}}
-    </div>
+    <ng-content></ng-content>
   </div>
 </div>

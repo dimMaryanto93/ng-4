@@ -2,5 +2,9 @@
   <app-cockpit (serverCreated)="addNewServer($event)"
                (serverBlueprintCreated)="addNewServerBlueprint($event)"></app-cockpit>
   <hr>
-  <app-server-element *ngFor="let server of serverElements" [element]="server"></app-server-element>
+  <app-server-element *ngFor="let server of serverElements" [element]="server">
+    <div class="panel-body" [ngStyle]="{'color': server.type === 'server' ? 'red' : 'blue'}">
+      {{server.content}}
+    </div>
+  </app-server-element>
 </div>
