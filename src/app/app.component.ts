@@ -1,5 +1,6 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import {ServerService} from "./server.service";
+import {Response} from "@angular/http";
 
 @Component({
   selector: 'app-root',
@@ -24,6 +25,16 @@ export class AppComponent {
     this.serverService.storeServer(this.servers).subscribe(
       (response) => console.log(response),
       (error) => console.log(error));
+  }
+
+  getServers() {
+    this.serverService.gettingServers().subscribe(
+      (response: Response) => {
+        const data = response.json();
+        console.log(data);
+      },
+      (error) => console.log(error)
+    );
   }
 
   private generateId() {

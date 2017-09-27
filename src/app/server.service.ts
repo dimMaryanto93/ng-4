@@ -16,4 +16,8 @@ export class ServerService {
       {headers: headers})
   }
 
+  gettingServers() {
+    return this.http.get('https://belajar-ng-http.firebaseio.com/servers.json');
+  }
+
 }
