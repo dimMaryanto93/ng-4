@@ -1,12 +1,14 @@
-import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {ActivatedRoute, Params} from "@angular/router";
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
-export class UserComponent implements OnInit {
+export class UserComponent implements OnInit, OnDestroy {
+  ngOnDestroy(): void {
+  }
 
   user: { id: number, name: string };
 
@@ -14,10 +16,18 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = {
-      id: this.route.snapshot.params['id'],
-      name: null
-    }
+    // this.user = {
+    //   id: this.route.snapshot.params['id'],
+    //   name: null
+    // }
+    this.route.params.subscribe(
+      (params: Params) => {
+        this.user = {
+          id: params['id'],
+          name: null
+        }
+      }
+    );
   }
 
 }
