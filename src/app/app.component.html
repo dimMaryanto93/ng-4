@@ -2,7 +2,7 @@
   <div class="list-group">
     <div class="list-group-item" *ngFor="let server of servers">
       <strong>{{server.name}}</strong>
-      started at: {{server.startedDate | date }}
+      started at: {{server.startedDate | date: 'yyyy MM dd' }}
       <span class="badge">{{server.scale | uppercase}}</span>
     </div>
   </div>
