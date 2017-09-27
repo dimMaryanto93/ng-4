@@ -1,4 +1,5 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
+import {ServerService} from "./server.service";
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,10 @@ import {Component, ElementRef, ViewChild} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(private serverService: ServerService) {
+  }
+
   @ViewChild('serverTypeInput') serverInputType: ElementRef;
   @ViewChild('serverCapacityInput') serverInputCapacitiy: ElementRef;
 
@@ -14,6 +19,12 @@ export class AppComponent {
     {name: 'Production Server', capacity: 200, id: this.generateId()},
     {name: 'Development Server', capacity: 50, id: this.generateId()}
   ];
+
+  saveServer() {
+    this.serverService.storeServer(this.servers).subscribe(
+      (response) => console.log(response),
+      (error) => console.log(error));
+  }
 
   private generateId() {
     return Math.round(Math.random() * 1000);
