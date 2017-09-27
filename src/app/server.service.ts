@@ -29,4 +29,10 @@ export class ServerService {
     });
   }
 
+  gettingAppName() {
+    return this.http.get('https://belajar-ng-http.firebaseio.com/appName.json').map((response: Response) => {
+      return response.json();
+    });
+  }
+
 }

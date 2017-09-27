@@ -8,6 +8,8 @@ import {ServerService} from "./server.service";
 })
 export class AppComponent {
 
+  appName = this.serverService.gettingAppName();
+
   constructor(private serverService: ServerService) {
   }
 
