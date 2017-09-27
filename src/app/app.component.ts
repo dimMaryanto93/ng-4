@@ -23,7 +23,7 @@ export class AppComponent {
   saveServer() {
     this.serverService.storeServer(this.servers).subscribe(
       (response) => console.log(response),
-      (error) => console.log(error));
+      (error) => console.error(error));
   }
 
   getServers() {

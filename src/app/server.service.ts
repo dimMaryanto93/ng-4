@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Headers, Http, Response} from "@angular/http";
 import 'rxjs/Rx';
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class ServerService {
@@ -22,11 +23,10 @@ export class ServerService {
       (response: Response) => {
         const data = response.json();
         return data;
-      },
-      (error) => {
-        console.log(error)
       }
-    );
+    ).catch((response: Response) => {
+      return Observable.throw('error client');
+    });
   }
 
 }
