@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http} from "@angular/http";
+import {Headers, Http} from "@angular/http";
 
 @Injectable()
 export class ServerService {
@@ -10,7 +10,10 @@ export class ServerService {
   }
 
   storeServer(servers: any[]) {
-    return this.http.post(this.baseUrl + 'servers.json', servers)
+    const headers = new Headers({'Content-Type': 'application/json'})
+    return this.http.post(this.baseUrl + 'servers.json',
+      servers,
+      {headers: headers})
   }
 
 }
