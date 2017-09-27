@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {version} from "punycode";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-home',
@@ -11,9 +12,14 @@ export class HomeComponent implements OnInit {
   title = `Welcome to Server Manager ${version}`;
   content = 'Manage your Servers and Users';
 
-  constructor() { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
+  }
+
+  onLoadServers() {
+    this.router.navigate(['/servers']);
   }
 
 }
