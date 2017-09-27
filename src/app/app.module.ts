@@ -9,10 +9,12 @@ import {HomeComponent} from './home/home.component';
 import {ServersComponent} from './servers/servers.component';
 import {UsersComponent} from './users/users.component';
 import {UserComponent} from "./users/user/user.component";
+import {ServerEditComponent} from "./servers/server-edit/server-edit.component";
 
 const appRoutes: Routes = [
   {component: HomeComponent, path: ''},
   {component: ServersComponent, path: 'servers'},
+  {component: ServerEditComponent, path: 'servers/:id/edit'},
   {component: UsersComponent, path: 'users'},
   {component: UserComponent, path: 'users/:id'}
 ];
@@ -23,7 +25,8 @@ const appRoutes: Routes = [
     HomeComponent,
     ServersComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    ServerEditComponent
   ],
   imports: [
     BrowserModule,

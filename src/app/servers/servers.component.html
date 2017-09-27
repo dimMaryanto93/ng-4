@@ -3,27 +3,11 @@
 </div>
 <div class="col-md-8">
   <div class="list-group">
-    <div class="list-group-item" *ngFor="let server of servers">
+    <a class="list-group-item" *ngFor="let server of servers" [routerLink]="['/servers', server.id, 'edit']">
       {{server.name}} <span class="badge">{{server.status == true ? 'online' : 'offline'}}</span>
-    </div>
+    </a>
   </div>
 </div>
 <div class="col-md-4">
-  <form>
-    <div class="form-group">
-      <label for="serverName">Server Name</label>
-      <input type="text" name="serverName" id="serverName" class="form-control">
-    </div>
-    <div class="form-group">
-      <label for="serverStatus">Server Status</label>
-      <select name="serverStatus" id="serverStatus" class="form-control">
-        <option value="true">Online</option>
-        <option value="false">Offline</option>
-      </select>
-    </div>
-    <hr>
-    <div class="form-group">
-      <button class="btn btn-primary">Update Server</button>
-    </div>
-  </form>
+  <app-server-edit></app-server-edit>
 </div>
