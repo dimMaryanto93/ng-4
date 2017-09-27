@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
-import {Headers, Http} from "@angular/http";
+import {Headers, Http, Response} from "@angular/http";
+import 'rxjs/Rx';
 
 @Injectable()
 export class ServerService {
@@ -11,13 +12,21 @@ export class ServerService {
 
   storeServer(servers: any[]) {
     const headers = new Headers({'Content-Type': 'application/json'})
-    return this.http.post(this.baseUrl + 'servers.json',
+    return this.http.put(this.baseUrl + 'servers.json',
       servers,
       {headers: headers})
   }
 
   gettingServers() {
-    return this.http.get('https://belajar-ng-http.firebaseio.com/servers.json');
+    return this.http.get('https://belajar-ng-http.firebaseio.com/servers.json').map(
+      (response: Response) => {
+        const data = response.json();
+        return data;
+      },
+      (error) => {
+        console.log(error)
+      }
+    );
   }
 
 }
