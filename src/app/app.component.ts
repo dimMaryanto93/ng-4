@@ -6,5 +6,13 @@ import {Component} from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  servers = [
+    {name: 'Testing Server', capacity: 10, id: this.generateId()},
+    {name: 'Production Server', capacity: 200, id: this.generateId()},
+    {name: 'Development Server', capacity: 50, id: this.generateId()}
+  ];
+
+  private generateId() {
+    return Math.round(Math.random() * 1000);
+  }
 }
